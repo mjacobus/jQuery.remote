@@ -17,6 +17,7 @@ module.exports = function (grunt) {
         ],
         options: {
           specs: 'specs/*.spec.js',
+          outfile: 'specs/_SpecRunner.html',
           keepRunner : true,
           display : 'short',
           summary : true,

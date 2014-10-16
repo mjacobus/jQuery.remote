@@ -11,11 +11,8 @@
     "dom",
     "components"
   ],
-  "dependencies": {
-    "koine-decorators-dom" : "~0.9.2"
-  },
   "devDependencies": {
-    "jquery":"1.7.2",
+    "jquery":">=1.7.2",
     "jasmine": "~2.*",
     "grunt": "*",
     "grunt-contrib-uglify": "*",
