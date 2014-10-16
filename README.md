@@ -21,6 +21,8 @@ Basic usage:
 $('a[data-remote]').remote();
 ```
 
+Customizing:
+
 ```javascript
 $('a[data-remote]').remote({
   success: function (response) {
