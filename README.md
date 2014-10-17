@@ -65,7 +65,7 @@ $('a').data('foo', 'bar').remote({
 
 ### Issues/Features proposals
 
-[Heres](https://github.com/mjacobus/jQuery.remote/issues) is the issue tracker.
+[Here](https://github.com/mjacobus/jQuery.remote/issues) is the issue tracker.
 
 ## Contributing
 
