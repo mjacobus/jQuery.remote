@@ -57,7 +57,7 @@ describe("jQueryRemote", function () {
       return new jQueryRemote($, element, options);
     };
 
-  describe("getOptions()", function () {
+  describe("#getOptions()", function () {
     describe("url", function () {
       it("returns element href when element is an anchor", function () {
         element = $('<a href="sample.php"/>');
@@ -122,6 +122,35 @@ describe("jQueryRemote", function () {
         });
 
         expect(subject.getOptions().data).toEqual({foo: 'bar'});
+      });
+    });
+
+    describe("#getTarget", function () {
+      afterEach(function () {
+        $('#container').remove();
+      });
+
+      it("returns null target when no target is given", function () {
+        subject = factory('<a/>');
+        target = subject.getTarget().html('x').append('y').prepend('z');
+
+        expect(typeof(target)).toEqual('object');
+      });
+
+      it("returns the element", function () {
+        $('body').append('<div id="container" />');
+
+        var container = $('#container');
+        subject = factory('<a data-target="#container">');
+
+        expect(subject.getTarget()).toEqual(container);
+      });
+    });
+
+    describe("#getTargetMethod()", function () {
+      it("returns the target method", function () {
+        expect(factory('<a />').getTargetMethod()).toEqual('html');
+        expect(factory('<a data-target-method="append" />').getTargetMethod()).toEqual('append');
       });
     });
   });
