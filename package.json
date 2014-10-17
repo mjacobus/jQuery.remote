@@ -16,6 +16,7 @@
     "jasmine": "~2.*",
     "grunt": "*",
     "jasmine-jquery" : "*",
+    "jasmine-ajax" : "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-jasmine": "*",
     "grunt-usemin": "~0.1.7",
