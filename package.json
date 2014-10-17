@@ -1,6 +1,6 @@
 {
-  "name": "koine-web-componentes",
-  "description": "Some fancy web components",
+  "name": "jquery-remote",
+  "description": "jQuery remote links ultility",
   "version": "0.9.1",
   "license": "MIT",
   "author": {
@@ -8,13 +8,14 @@
     "email" : "marcelo.jacobus@gmail.com"
   },
   "tags": [
-    "dom",
-    "components"
+    "jquery",
+    "ajax"
   ],
   "devDependencies": {
     "jquery":">=1.7.2",
     "jasmine": "~2.*",
     "grunt": "*",
+    "jasmine-jquery" : "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-jasmine": "*",
     "grunt-usemin": "~0.1.7",

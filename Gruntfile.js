@@ -13,6 +13,7 @@ module.exports = function (grunt) {
       components: {
         src: [
           'node_modules/jquery/dist/jquery.js',
+          'node_modules/jasmine-jquery/lib/jasmine-jquery.js',
           'src/*js'
         ],
         options: {
