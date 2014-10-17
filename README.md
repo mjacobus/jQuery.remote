@@ -1,7 +1,7 @@
 jQuery.remote
 -----------------------
 
-Eases the remote handling of links
+A nice simple way to handle ajax requests
 
 Code information:
 

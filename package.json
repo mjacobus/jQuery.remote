@@ -1,7 +1,7 @@
 {
   "name": "jquery-remote",
   "description": "jQuery remote links ultility",
-  "version": "0.9.1",
+  "version": "0.9.0",
   "license": "MIT",
   "author": {
     "name" : "Marcelo Jacobus",
