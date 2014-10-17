@@ -137,50 +137,50 @@ describe("jQueryRemote", function () {
         expect(subject.getOptions().data).toEqual({foo: 'bar'});
       });
     });
+  });
 
-    describe("#getTargetSelector", function () {
-      it("returns the target selector", function () {
-        subject = factory('<a/>');
-        expect(subject.getTargetSelector()).toBeUndefined();
+  describe("#getTargetSelector", function () {
+    it("returns the target selector", function () {
+      subject = factory('<a/>');
+      expect(subject.getTargetSelector()).toBeUndefined();
 
-        subject = factory('<a data-target="#target"/>');
-        expect(subject.getTargetSelector()).toEqual('#target');
+      subject = factory('<a data-target="#target"/>');
+      expect(subject.getTargetSelector()).toEqual('#target');
 
-        subject = factory('<a data-target="#target"/>', { target: '#other' });
-        expect(subject.getTargetSelector()).toEqual('#other');
-      });
+      subject = factory('<a data-target="#target"/>', { target: '#other' });
+      expect(subject.getTargetSelector()).toEqual('#other');
+    });
+  });
+
+  describe("#getTarget", function () {
+    afterEach(function () {
+      $('#container').remove();
     });
 
-    describe("#getTarget", function () {
-      afterEach(function () {
-        $('#container').remove();
-      });
+    it("returns null target when no target is given", function () {
+      subject = factory('<a/>');
+      target = subject.getTarget().html('x').append('y').prepend('z');
 
-      it("returns null target when no target is given", function () {
-        subject = factory('<a/>');
-        target = subject.getTarget().html('x').append('y').prepend('z');
-
-        expect(typeof(target)).toEqual('object');
-      });
-
-      it("returns the element", function () {
-        $('body').append('<div id="container" />');
-
-        var container = $('#container');
-        subject = factory('<a data-target="#container">');
-
-        expect(subject.getTarget()).toEqual(container);
-      });
+      expect(typeof(target)).toEqual('object');
     });
 
-    describe("#getTargetMethod()", function () {
-      it("returns the target method", function () {
-        expect(factory('<a />').getTargetMethod()).toEqual('html');
-        expect(factory('<a data-target-method="append" />').getTargetMethod()).toEqual('append');
+    it("returns the element", function () {
+      $('body').append('<div id="container" />');
 
-        subject = factory('<a data-target-method="append" />', { targetMethod: 'html' });
-        expect(subject.getTargetMethod()).toEqual('html');
-      });
+      var container = $('#container');
+      subject = factory('<a data-target="#container">');
+
+      expect(subject.getTarget()).toEqual(container);
+    });
+  });
+
+  describe("#getTargetMethod()", function () {
+    it("returns the target method", function () {
+      expect(factory('<a />').getTargetMethod()).toEqual('html');
+      expect(factory('<a data-target-method="append" />').getTargetMethod()).toEqual('append');
+
+      subject = factory('<a data-target-method="append" />', { targetMethod: 'html' });
+      expect(subject.getTargetMethod()).toEqual('html');
     });
   });
 });
