@@ -34,8 +34,30 @@ $('a[data-remote]').remote({
 
 ### Options
 
+Most options can be passed in the form of an object when instantiating the plugin or in the data-{opition} format:
+
 - ```target``` - The place the response should be prepended/appended/placed. See ```targetMethod```
 - ```targetMethod``` - html | prepend | append
+- ```type``` - The type of request: IE: 'POST', 'GET'
+- ```data``` - The data to be send in the request
+
+Valid options:
+
+```javascript
+
+$('a').remote({
+  data: { foo: 'bar' }
+});
+
+$('a').data('foo', 'bar').remote({
+  data: function () {
+    var foo = this.$element.data('foo');
+
+    return { foo: value };
+  }
+});
+
+```
 
 ### Installing
 
@@ -43,7 +65,7 @@ $('a[data-remote]').remote({
 
 ### Issues/Features proposals
 
-[Here](https://github.com/mjacobus/jQuery.remote/issues) is the issue tracker.
+[Here]s(https://github.com/mjacobus/jQuery.remote/issues) is the issue tracker.
 
 ## Contributing
 
