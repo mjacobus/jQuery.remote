@@ -124,7 +124,5 @@ describe("jQueryRemote", function () {
         expect(subject.getOptions().data).toEqual({foo: 'bar'});
       });
     });
-
   });
 });
-

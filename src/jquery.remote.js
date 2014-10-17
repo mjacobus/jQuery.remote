@@ -70,11 +70,7 @@ jQueryRemote.factory = function (jQuery, element, options) {
     return this.each(function () {
       $(this).on('click', function (e) {
         e.preventDefault();
-
         jQueryRemote.factory($, $(this), options);
-
-
-        // jQueryRemote.makeRequest($, $(this), options);
       });
     });
   };
