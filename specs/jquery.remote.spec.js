@@ -138,6 +138,19 @@ describe("jQueryRemote", function () {
       });
     });
 
+    describe("#getTargetSelector", function () {
+      it("returns the target selector", function () {
+        subject = factory('<a/>');
+        expect(subject.getTargetSelector()).toBeUndefined();
+
+        subject = factory('<a data-target="#target"/>');
+        expect(subject.getTargetSelector()).toEqual('#target');
+
+        subject = factory('<a data-target="#target"/>', { target: '#other' });
+        expect(subject.getTargetSelector()).toEqual('#other');
+      });
+    });
+
     describe("#getTarget", function () {
       afterEach(function () {
         $('#container').remove();

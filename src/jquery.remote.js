@@ -54,15 +54,6 @@ jQueryRemote.prototype = {
   },
 
   /**
-   * Get the target method for handling the response
-   * Accepted: html (default), append, prepend
-   * @return string
-   */
-  getTargetMethod: function () {
-    return this.options.targetMethod || this.$element.data('targetMethod') || 'html';
-  },
-
-  /**
    * Get the data to send along with the ajax request
    * @return object
    */
@@ -83,11 +74,29 @@ jQueryRemote.prototype = {
   },
 
   /**
+   * Get the target method for handling the response
+   * Accepted: html (default), append, prepend
+   * @return string
+   */
+  getTargetMethod: function () {
+    return this.options.targetMethod || this.$element.data('targetMethod') || 'html';
+  },
+
+  /**
+   * Get the target method for handling the response
+   * Accepted: html (default), append, prepend
+   * @return string
+   */
+  getTargetSelector: function () {
+    return this.options.target || this.$element.data('target');
+  },
+
+  /**
    * Get the target for putting the response in
    * @return jQuery
    */
   getTarget: function () {
-    return this.$(this.$element.data('target'));
+    return this.$(this.getTargetSelector());
   },
 
   /**
