@@ -1,3 +1,11 @@
+/**
+ * Constructor function
+ *
+ * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
+ * @param function jQuery the jquery lib
+ * @param jQuery $element
+ * @param object options
+ */
 var jQueryRemote = function (jQuery, $element, options) {
   this.$ = jQuery;
   this.$element = $element;
