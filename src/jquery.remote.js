@@ -36,7 +36,7 @@ jQueryRemote.prototype = {
    * @return string
    */
   getUrl: function () {
-    return this.$element.attr('href') || this.$element.attr('action') || "";
+    return this.options.url || this.$element.attr('href') || this.$element.attr('action') || "";
   },
 
   /**
@@ -44,7 +44,9 @@ jQueryRemote.prototype = {
    * @return string
    */
   getType: function () {
-    var method = this.$element.data('method');
+    var method = this.options.type;
+
+    method = method || this.$element.data('method');
     method = method || this.$element.attr('method');
     method = method || 'GET';
 
@@ -57,7 +59,7 @@ jQueryRemote.prototype = {
    * @return string
    */
   getTargetMethod: function () {
-    return this.$element.data('targetMethod') || 'html';
+    return this.options.targetMethod || this.$element.data('targetMethod') || 'html';
   },
 
   /**

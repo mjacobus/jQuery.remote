@@ -73,22 +73,35 @@ describe("jQueryRemote", function () {
         expect(subject.getOptions().url).toEqual('sample.php');
       });
 
-      describe("type", function () {
-        it("returns GET by defautl", function () {
-          expect(factory($('<a href="#" />')).getOptions().type).toEqual('GET');
-        });
+      it("returns the given option when given", function () {
+        element = $('<a href="sample.php"/>');
+        subject = factory(element, { url: 'custom.php' });
 
-        it("returns the element data-method when defined", function () {
-          expect(
-            factory($('<a href="#" data-method="post" />')).getOptions().type
-          ).toEqual('POST');
-        });
+        expect(subject.getOptions().url).toEqual('custom.php');
+      });
+    });
 
-        it("returns the form method when defined", function () {
-          expect(
-            factory($('<form method="post" />')).getOptions().type
+    describe("type", function () {
+      it("returns GET by defautl", function () {
+        expect(factory($('<a href="#" />')).getOptions().type).toEqual('GET');
+      });
+
+      it("returns the element data-method when defined", function () {
+        expect(
+          factory($('<a href="#" data-method="post" />')).getOptions().type
           ).toEqual('POST');
-        });
+      });
+
+      it("returns the form method when defined", function () {
+        expect(
+          factory($('<form method="post" />')).getOptions().type
+          ).toEqual('POST');
+      });
+
+      it("returns the given option when given", function () {
+        expect(
+          factory($('<form method="post" />'), { type: 'get' }).getOptions().type
+          ).toEqual('GET');
       });
     });
 
@@ -151,6 +164,9 @@ describe("jQueryRemote", function () {
       it("returns the target method", function () {
         expect(factory('<a />').getTargetMethod()).toEqual('html');
         expect(factory('<a data-target-method="append" />').getTargetMethod()).toEqual('append');
+
+        subject = factory('<a data-target-method="append" />', { targetMethod: 'html' });
+        expect(subject.getTargetMethod()).toEqual('html');
       });
     });
   });
